@@ -55,7 +55,7 @@ class LinkedList {
   /** pop(): return & remove last item. */
 
   pop() {
-    if (!this.tail) return null;
+    if (this.tail === null) return null;
 
     let prevTail;
     let current = this.head;
@@ -63,13 +63,16 @@ class LinkedList {
     while (current.next !== null) {
       prevTail = current;
       current = current.next;
-      console.log({current, prevTail})
+      console.log("PrevTail:", prevTail);
+      console.log("current:", current);
     }
 
+    console.log("prevTail is:", prevTail);
     const lastTail = prevTail.next;
     this.tail = prevTail;
     prevTail.next = null;
     this.length--;
+    console.log("last tail:", lastTail)
 
     return lastTail.val;
   }
